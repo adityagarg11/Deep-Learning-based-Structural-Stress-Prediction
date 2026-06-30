@@ -1,140 +1,156 @@
-# Deep Learning-Based Structural Stress Prediction
+Deep Learning-Based Structural Stress Prediction
+<p align="center">
 
-A deep learning project focused on predicting the **maximum von Mises stress** of cantilever beam structures from material (volume fraction) distributions. The project explores both **regression** and **classification** approaches for structural stress prediction and compares their performance, complexity, and data requirements.
 
----
 
-## Project Overview
 
-This project investigates the application of **Artificial Neural Networks (ANNs)** to surrogate structural analysis. Instead of performing computationally expensive finite element simulations for every design, neural networks are trained to learn the relationship between material distribution and the resulting maximum **von Mises stress**.
 
-Two different machine learning approaches were implemented and evaluated:
 
-- **Regression Model** – Predicts the numerical value of the maximum von Mises stress.
-- **Classification Model** – Categorizes structures into stress percentile ranges (0–10%, 11–25%, 26–50%, and 51–100%).
 
-The objective was to compare both methods in terms of predictive capability, computational complexity, and dataset requirements.
 
----
 
-## Features
 
-- **Neural Network-based structural stress prediction**
-- **Regression model** for maximum von Mises stress estimation
-- **Classification model** for stress percentile prediction
-- Performance comparison between regression and classification approaches
-- Evaluation of model complexity and data requirements
 
----
 
-## Dataset
+Deep Learning • Structural Mechanics • Regression • Classification • Engineering AI
 
-The dataset consists of **cantilever beam structures** with randomly generated **material (volume fraction) distributions**.
+</p>
+Overview
 
-Each sample contains:
+This project investigates the application of Deep Learning as a surrogate modeling technique for structural mechanics. The objective is to predict the maximum von Mises stress of cantilever beam structures directly from material (volume fraction) distributions, eliminating the need for computationally expensive finite element simulations for every new design.
 
-- Material (volume fraction) distribution
-- Corresponding maximum **von Mises stress**
+Two independent learning approaches were implemented and evaluated:
 
-The data was used to train and evaluate both regression and classification neural network models.
+Regression for numerical stress prediction.
+Classification for stress percentile prediction.
 
----
+The project also compares both approaches in terms of
 
-## Methodology
+Prediction accuracy
+Computational complexity
+Dataset requirements
+Practical applicability
+Problem Statement
 
-### Regression
+Given the material distribution of a cantilever beam,
 
-The regression model learns the mapping
+predict its maximum von Mises stress.
 
-> **Material Distribution → Maximum von Mises Stress**
+Two approaches were investigated.
 
-The model predicts the exact stress value for unseen structural designs.
+Approach 1 — Regression
+Material Distribution
+          │
+          ▼
+Neural Network
+          │
+          ▼
+Maximum von Mises Stress
+Approach 2 — Classification
+Material Distribution
+          │
+          ▼
+Neural Network
+          │
+          ▼
+Stress Category
 
-### Classification
-
-The classification model predicts the stress category instead of the exact numerical value.
-
-The stress ranges are divided into:
-
-- **0–10 Percentile**
-- **11–25 Percentile**
-- **26–50 Percentile**
-- **51–100 Percentile**
-
-This formulation enables faster identification of structurally efficient designs.
-
----
-
-## Technologies Used
-
-- **Python**
-- **TensorFlow / Keras**
-- **NumPy**
-- **Pandas**
-- **Scikit-learn**
-- **Matplotlib**
-
----
-
-## Project Structure
-
-```
-├── Dataset/
-├── Regression_Model/
-├── Classification_Model/
-├── Results/
-├── Figures/
+0–10%
+11–25%
+26–50%
+51–100%
+Repository Structure
+.
+├── data/
 ├── notebooks/
+├── models/
+├── images/
+│   ├── training_loss.png
+│   ├── regression_parity.png
+│   ├── confusion_matrix.png
+│   └── regression_loss.png
 ├── requirements.txt
 └── README.md
-```
+Methodology
+Data Preparation
+Material distribution data preprocessing
+Feature normalization
+Train-validation-test split
+Regression Model
 
----
+The regression network learns
 
-## Results
+Material Distribution → Maximum von Mises Stress
 
-The project demonstrates that:
+allowing continuous stress prediction for unseen designs.
 
-- Neural networks can accurately approximate the relationship between material distribution and structural stress.
-- Regression provides precise stress predictions.
-- Classification offers a computationally simpler alternative for identifying high- and low-stress designs.
-- Both approaches have distinct trade-offs in prediction accuracy, model complexity, and data requirements.
+Classification Model
 
----
+Instead of predicting the exact stress value, the network classifies each design into one of four stress percentile ranges.
 
-## Learning Outcomes
+Class	Stress Percentile
+0	0–10%
+1	11–25%
+2	26–50%
+3	51–100%
+Technologies Used
+Category	Tools
+Programming	Python
+Deep Learning	TensorFlow, Keras
+Data Processing	NumPy, Pandas
+Machine Learning	Scikit-Learn
+Visualization	Matplotlib
+Results
+Training Progress
 
-Through this project, I gained practical experience in:
+The regression model converges smoothly during training.
 
-- **Deep Learning**
-- **Neural Network Design**
-- **Regression & Classification**
-- **Structural Mechanics**
-- **Engineering Data Analysis**
-- **Model Evaluation**
-- **Scientific Computing with Python**
+<p align="center"> <img src="images/training_loss.png" width="750"> </p>
+Regression Performance
 
----
+Predicted vs Actual maximum von Mises stress.
 
-## Future Work
+<p align="center"> <img src="images/regression_parity.png" width="650"> </p>
+Classification Performance
 
-- Implement Convolutional Neural Networks (CNNs)
-- Investigate Physics-Informed Neural Networks (PINNs)
-- Extend the model to predict complete stress fields
-- Compare against traditional finite element simulations
-- Improve generalization using larger datasets
+Confusion Matrix for the classification network.
 
----
+<p align="center"> <img src="images/confusion_matrix.png" width="500"> </p>
+Model Convergence
 
-## Author
+Training error throughout optimization.
 
-**Aditya Garg**
+<p align="center"> <img src="images/regression_loss.png" width="750"> </p>
+Key Findings
 
-B.Tech, Mechanical Engineering  
+✔ Neural networks successfully learned the relationship between material distribution and structural response.
+
+✔ Regression provides accurate continuous stress prediction.
+
+✔ Classification offers a computationally simpler alternative for identifying high- and low-stress structural designs.
+
+✔ The study highlights the trade-offs between prediction accuracy, model complexity, and data requirements.
+
+Skills Demonstrated
+Deep Learning
+Neural Networks
+Regression
+Multi-class Classification
+Structural Mechanics
+Engineering Data Analysis
+Scientific Computing
+Model Evaluation
+Machine Learning for Physical Systems
+Future Improvements
+Implement Convolutional Neural Networks (CNNs)
+Explore Physics-Informed Neural Networks (PINNs)
+Predict the complete stress field instead of only the maximum stress
+Compare performance with Finite Element Analysis (FEA)
+Extend the framework to more complex structural geometries
+Author
+
+Aditya Garg
+
+B.Tech, Mechanical Engineering
+
 Indian Institute of Technology Ropar
-
----
-
-## License
-
-This project is intended for **academic and educational purposes**.
